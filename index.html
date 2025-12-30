@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Isa</title>
+
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #eaadc0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.card {
+    background: #ffffff;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    padding: 50px;
+    animation: fade 1s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Encabezado */
+.letter-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.letter-header div {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+/* Carta principal */
+.letter-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.9;
+    color: #222;
+    margin-bottom: 50px;
+}
+
+.letter-body p {
+    margin-bottom: 22px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #eee;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    background: #222;
+    color: white;
+}
+
+.section {
+    display: none;
+    animation: fade 0.5s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+.section h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+}
+
+.section p {
+    color: #444;
+    line-height: 1.7;
+}
+
+/* Galería */
+.gallery {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="letter-header">
+        <div><strong>De:</strong> Juan</div>
+        <div><strong>Para:</strong> Isa</div>
+    </div>
+
+    <div class="letter-body">
+        <p><strong>Isa,</strong></p>
+
+        <p>Esta carta nace desde un lugar honesto de mi corazón. Han sido días difíciles, de silencios largos y pensamientos constantes.</p>
+
+        <p>He intentado seguir adelante, distraer la mente, no volver sobre lo que fue. Pero hay recuerdos que no se fuerzan a desaparecer.</p>
+
+        <p>Tu ausencia pesa, y en ese peso entendí lo importante que eres para mí.</p>
+
+        <p>Tal vez no haya respuesta, y está bien. Al menos estas palabras llevan todo lo que fui incapaz de callar.</p>
+
+        <p><em>— Juan</em></p>
+        <p><em>29/12/2025</em></p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('p1', this)">Perdón</button>
+        <button class="tab-btn" onclick="openTab('p2', this)">Agradecimientos</button>
+        <button class="tab-btn" onclick="openTab('p4', this)">Nosotros</button>
+    </div>
+
+    <div id="p1" class="section active">
+        <h3>Perdón</h3>
+        <p>Perdón por los momentos en los que discutimos. Nunca dejé de querer que las cosas funcionaran.</p>
+    </div>
+
+    <div id="p2" class="section">
+        <h3>Feliz Navidad y Año Nuevo</h3>
+        <p>Deseo que este nuevo año te regale calma, fuerza y logros.</p>
+    </div>
+
+    <div id="p4" class="section">
+        <h3>Nosotros</h3>
+
+        <div class="gallery">
+            <img src="imagenes/foto1.jpg" alt="Recuerdo 1">
+            <img src="imagenes/foto2.jpg" alt="Recuerdo 2">
+            <img src="imagenes/foto3.jpg" alt="Recuerdo 3">
+        </div>
+
+        <p style="margin-top:15px">
+            No para quedarnos en el pasado, sino para recordar lo que significó.
+        </p>
+    </div>
+
+</div>
+
+<script>
+function openTab(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
